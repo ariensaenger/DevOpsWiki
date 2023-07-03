@@ -1,0 +1,15 @@
+#Install AKS CLI
+az aks install-cli
+
+#Get Credentials and Config Local Kubernetes Cluster
+az aks get-credentials --resource-group res --name restalice
+
+#Check Context 
+kubectl config get-contexts
+kubectl get nodes
+
+#Create Pull Scret for ACR 
+kubectl create secret docker-registry acr-secret --docker-server=restalice.azurecr.io --docker-username=Restalice --docker-password=f/0kVFivgu1BpZX5Y/N7qCcHjC6xr/8SgDwY0WpIYt+ACRAqYZgv --docker-email=adam.kirschstein@paradys.net
+
+#Check Secret 
+kubectl get secret

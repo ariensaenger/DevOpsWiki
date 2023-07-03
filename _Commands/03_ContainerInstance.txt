@@ -1,0 +1,8 @@
+docker login azure
+docker context create aci restaliceacicontext
+
+docker context ls
+docker context use restaliceacicontext
+
+cd C:\Projects\Restalice\Restalice
+docker compose up 

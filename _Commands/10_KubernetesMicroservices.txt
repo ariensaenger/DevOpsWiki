@@ -1,0 +1,17 @@
+# Deploy Secret
+kubectl apply -f .\mongo-secret.yaml
+
+get Endpoints
+kubectl describe service mongo-servicecd
+
+#Go to Docker Compose 
+cd C:\Projects\Restalice\Restalice
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up
+docker-compose -f docker-compose.yml -f docker-compose.override.yml down
+
+#Add Deployments & Confis & Secrets 
+kubectl apply -f .\mongo-confimap.yaml
+
+#Check Container / Pod 
+kubectl exec -it resdatabaseservice-deployment-84d765987f-qt5qn -- bash 
+kubectl logs resdatabaseservice-deployment-786cbd49b6-ssxgv

@@ -1,0 +1,3 @@
+docker pull mongo
+docker tag mongo restalice.azurecr.io/mongo
+docker push restalice.azurecr.io/mongo

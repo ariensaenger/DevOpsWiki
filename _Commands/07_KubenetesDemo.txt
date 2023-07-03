@@ -1,0 +1,26 @@
+## Pod Deployment
+
+# Create Pod from Docker image
+kubectl run swn-nginx --image=nginx
+
+#Port Zuweisung Pod 
+kubectlport-forward swn-nginx 8080:80
+
+
+## Deployment
+kubectl create deployment nginx-depl --image=nginx	
+
+#Edit Config
+kubectl edit deployment nginx-depl
+
+#Terminal for Pod 
+kubectl exec mongo-depl-8fbdb868c-h8qq2 -it sh
+#(Wie bei Docker) 
+
+
+## Work declaritive with Files 
+kubectl create -f bla.yaml
+kubectl apply -f bla.yaml
+
+##Debugging
+kubectl describe 

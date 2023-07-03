@@ -1,0 +1,54 @@
+cd C:/Projects/Restalice/Restalice
+
+# All Images
+docker images
+
+# All Containers 
+docker ps
+
+# Get Clusters 
+kubectl get all
+
+
+# Cluster Info 
+ kubectl cluster-info
+
+# Cluster Version 
+kubectl version --short
+
+#Get Pods
+kubectl get pod
+kubectl get nodes
+kubectl get services
+kubectl get all 
+kubectl get deployments
+kubectl get replicaset
+kubectl get secret
+
+
+#CRUD commands
+kubectl create/edit/delete 
+#Beispiel 
+kubectl delete deployment mongo-deployment
+
+
+Abstraction: deployment/ replicaset / pod 
+
+Debugging Pods, Troubleshooting 
+
+
+#Open & Edit file 
+kubectl edit deployment nginx-depl
+
+
+#Logs 
+kubectl logs 
+kubectl logs [Podname]
+
+#Describe / Debugging
+kubectl describe pod [Podname]
+
+#Working with files 
+kubectl create -f bla.yaml
+kubectl apply -f bla.yaml
+kubectl delete -f bla.yaml

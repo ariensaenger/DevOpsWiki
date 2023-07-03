@@ -1,0 +1,4 @@
+az storage account create --name mystorageaccount --resource-group myResourceGroup --location eastus2 --sku Standard_LRS --kind StorageV2
+
+
+az container create --resource-group res-test --name acitest --location eastus2 --azure-file-volume-share resttestdaten --azure-file-volume-account-name resteststorageaccount --azure-file-volume-account-key D2U7UyVduWLNjyZZ72GJiUO0+POTMDSDuSGWCGqe75DAg2ac8tNNZFfqy4DpiBmkamCz5kBEyD33+AStZwQKUQ== --azure-file-volume-mount-path /docker-compose-all-v03.yml

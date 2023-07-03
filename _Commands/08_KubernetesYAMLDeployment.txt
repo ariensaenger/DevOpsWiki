@@ -1,0 +1,16 @@
+
+#Create Deployment from Yaml
+ kubectl apply -f .\application\deployment.yaml
+ 
+ # Get Yaml File
+ kubectl get deployment nginx-deployment -o yaml
+ 
+ #Describe service
+ kubectl describe service nginx-service
+ 
+ #Wide Get 
+ kubectl get pod -o wide
+ 
+ # Delete 
+  kubectl delete -f .\deployment.yaml
+ 

@@ -1,0 +1,11 @@
+cd C:\Projects\Restalice\Restalice
+
+az login
+az acr login --name restalice.azurecr.io
+
+docker push restalice.azurecr.io/resdatabaseservice:latest
+docker push restalice.azurecr.io/reswebstore:latest
+docker push restalice.azurecr.io/resapigateway:latest
+
+
+

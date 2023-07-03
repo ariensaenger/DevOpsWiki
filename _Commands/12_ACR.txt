@@ -1,0 +1,24 @@
+#Context 
+kubectl config get-contexts
+kubectl config current-context
+kubectl config use-context
+
+#ACLI
+az --version
+
+#Group
+az group create --name x --location westeurope
+az acr create --resource-group x --name xx --sku Basic
+
+#Update ACR 
+az acr update -n Restalice --admin-enabled true
+
+#Login 
+az acr login --name shoppingacr
+
+#Get ACRs
+az acr list --resource-group res --query "[].{acrLoginServer:loginServer}" --output table
+
+#Docker Tag 
+#Docker Tagging 
+# docker tag resdatabaseservice:latest restalice.azurecr.io/resdatabaseservice:v1
