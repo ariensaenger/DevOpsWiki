@@ -1,0 +1,93 @@
+#Inital Script Rights 
+/Open Gitbash 
+chmod +x script.sh
+
+#Bash Ordner
+which bash 
+
+#Initial Bash File 
+#! /usr/bin/bash
+
+#Run File 
+./script.sh
+
+#Variables 
+NAME="Brad"
+echo "My name is $NAME"
+
+# User Input
+read -p "Enter your name: " NAME2
+echo "Hello $NAME2, nice to meet you!"
+
+# IF-ELSE STATEMENT
+if [ "$NAME" == "Brad" ]
+then
+  echo "Your name is Brad"
+elif [ "$NAME" == "Jack" ]
+then
+  echo "Your name is Jack"
+else
+  echo "Your name is NOT Brad or Jack"
+fi
+
+# COMPARISON
+NUM1=31
+NUM2=5
+if [ "$NUM1" -gt "$NUM2" ]
+then
+  echo "$NUM1 is greater than $NUM2"
+else
+  echo "$NUM1 is less than $NUM2"
+fi
+
+#File 
+#Create/Delete File/Folder
+touch test.txt
+rm test.txt
+mkdir test
+
+# FILE CONDITIONS
+FILE="test.txt"
+if [ -f "$FILE" ]
+then
+  echo "$FILE is a file"
+else
+  echo "$FILE is not a file"
+fi
+
+#Case Statement 
+read -p "Are you 21 or over? Y/N " ANSWER
+case "$ANSWER" in 
+  [yY] | [yY][eE][sS])
+    echo "You can have a beer :)"
+    ;;
+  [nN] | [nN][oO])
+    echo "Sorry, no drinking"
+    ;;
+  *)
+    echo "Please enter y/yes or n/no"
+    ;;
+esac
+
+# FOR LOOP TO RENAME FILES
+FILES=$(ls *.txt)
+NEW="new"
+for FILE in $FILES
+  do
+    echo "Renaming $FILE to new-$FILE"
+    mv $FILE $NEW-$FILE
+  done
+
+# FUNCTION WITH PARAMS
+function greet() {
+echo "Hello, I am $1 and I am $2"
+}
+
+greet "Brad" "36"
+
+
+# CREATE FOLDER AND WRITE TO A FILE
+mkdir hello
+touch "hello/world.txt"
+echo "Hello World" >> "hello/world.txt"
+echo "Created hello/world.txt"

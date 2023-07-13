@@ -1,0 +1,31 @@
+# Select 
+
+Select PersonId from bapafg_dotnet
+
+SELECT name
+FROM city
+ORDER BY rating [ASC];
+
+
+# Aliases
+
+SELECT name AS city_name
+FROM city;
+
+# Filtering 
+SELECT name
+FROM city
+WHERE rating > 3;
+
+Fetch names of cities that start with a 'P' or end with an 's':
+SELECT name
+FROM city
+WHERE name LIKE 'P%'
+  OR name LIKE '%s';
+  
+  
+# Multiple Tables
+SELECT city.name, country.name
+FROM city
+[INNER] JOIN country
+  ON city.country_id = country.id;

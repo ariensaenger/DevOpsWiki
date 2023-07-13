@@ -1,0 +1,47 @@
+#Check Table
+SELECT * FROM bapafg_dotnet.SelectionRounds;
+
+#Write Value
+INSERT INTO bapafg_dotnet.SelectionRounds (Id, CreatedAt, UpdatedAt, CreatedbyUserName)
+VALUES ('8', '2005-02-13', '2006-03-13', 'John');
+
+#Read Row
+SELECT * FROM bapafg_dotnet.SelectionRounds
+WHERE ID = 8;
+
+#Update Value
+UPDATE bapafg_dotnet.SelectionRounds
+SET CreatedByUserName = 'Tim'
+WHERE Id = 8;
+
+#Delete Value
+DELETE FROM bapafg_dotnet.SelectionRounds
+WHERE Id = 8;
+
+---
+
+#Create Table
+
+CREATE TABLE bapafg_dotnet.Pets (
+   ID int,
+   PetName varchar(20),
+   Age int,
+   Class varchar(20));
+
+# Load Table
+
+INSERT bapafg_dotnet.Pets (ID, PetName, Age, Class)
+VALUES (1, 'Cletus',  1, 'Dog'),
+       (2, 'Velma',  11, 'Dog'),
+       (3, 'Joey',   16, 'Cat'),
+       (4, 'Chattie', 5, 'Cat');  
+
+# Check Table 
+SELECT * FROM bapafg_dotnet.Pets;
+
+# Delete Values
+
+DELETE FROM bapafg_dotnet.Pets;
+
+#Drop Table
+DROP TABLE bapafg_dotnet.Pets;
