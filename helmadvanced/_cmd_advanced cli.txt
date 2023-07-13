@@ -1,0 +1,22 @@
+1. Testing 
+helm install nginx03 --set service.port=8080 --dry-run bitnami/nginx
+
+2. Monitoring 
+helm get notes nginx03
+helm get values nginx03
+helm get values nginx03 --all
+helm get manifest 
+
+3. Rollback 
+helm history nginx03
+helm rollback nginx03 1
+
+
+4. Auto-Release Naming 
+helm install bitnami/nginx --generate-name
+
+5. Update or Install new Release
+helm upgrade --install nginx10 --set service.port=8008 bitnami/nginx
+
+6. Time
+helm upgrade --install nginx10 bitnami/nginx --wait --timeout 10s

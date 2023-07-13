@@ -1,0 +1,27 @@
+helm repo add gitlab https://charts.gitlab.io/
+helm repo update
+(Install NGINX Controller)
+helm upgrade --install gitlab gitlab/gitlab --timeout 600s --set global.hosts.domain=init.com --set global.hosts.externalIP=10.10.10.10 --set certmanager-issuer.email=adam.kirschstein@init.com --set postgresql.image.tag=13.6.0
+
+#Monitoring
+helm status gitlab
+
+#Credentials
+kubectl edit secret gitlab-gitlab-initial-root-password
+https://www.base64decode.org/
+[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String((kubectl get secret gitlab-gitlab-initial-root-password -ojsonpath='{.data.password}')))
+
+#Restart
+kubectl delete pods --all
+
+#ExecbashinPod
+kubectl exec -it gitlab-webservice-default-bd59b94cf-hhzlw -- /bin/bash
+
+#uninstall 
+helm uninstall gitlab gitlab/gitlab
+(#Delete)
+kubectl delete crd challenges.acme.cert-manager.io
+kubectl get crd
+
+#Debug 
+helm upgrade --install gitlab gitlab/gitlab --timeout 600s --set global.hosts.domain=init.com --set global.hosts.externalIP=10.10.10.10 --set certmanager-issuer.email=adam.kirschstein@init.com --set postgresql.image.tag=13.6.0 --set certmanager.install=false -n bapafg

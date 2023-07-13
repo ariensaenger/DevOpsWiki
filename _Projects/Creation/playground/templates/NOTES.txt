@@ -1,0 +1,11 @@
+Name of Chart is {{.Chart.Name}}, its version is {{.Chart.Version}} and 
+the bundled application version is {{.Chart.AppVersion}}
+
+The release name is {{.Release.Name}} and it will be installed to the  {{.Release.Namespace}}
+Is this a new installation? {{.Release.IsInstall}}
+Is this a upgrade? {{.Release.IsUpgrade}}
+
+The Version of Kubernetes {{.Capabilities.KubeVersion}}
+
+
+

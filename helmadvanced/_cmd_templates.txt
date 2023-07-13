@@ -1,0 +1,19 @@
+1. Creation 
+ helm create myapp
+ 
+2. Monitoring 
+tree myapp
+kubectl port-forward myapp01-59867f8fbf-l4tsz 8181:80
+code chart.yaml
+
+3. Editing 
+helm install myapp02 --dry-run .
+ 
+ 
+4. Exploring Docker Image Api 
+docker run -d -p 8080:80 afakharany/hellonodejs:1.0.0
+curl http://localhost:8080
+docker kill 228558090fd4
+
+5. Create Package
+helm package .

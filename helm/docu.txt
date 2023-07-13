@@ -1,0 +1,29 @@
+#Create Helm Charts 
+helm create webapp1
+
+#Install Helm in Repo 
+helm install mywebapp-release webapp1/
+
+#Install Helm in Repo with Values
+helm install mywebapp-release webapp1/ --values mywebapp/values.yaml
+
+#Check
+kubectl get all 
+
+#Templating
+  name: {{.Values.appName}}
+  
+#Upgrade Kubernetes 
+helm upgrade mywebapp-release webapp1/ --values mywebapp/values.yaml
+
+#Create NameSpace 
+kubectl create namespace dev
+kubectl create namespace prod
+
+#Deploy to Dev/Prod 
+helm install mywebapp-release-dev webapp1/ --values webapp1/values.yaml -f webapp1/values-dev.yaml -n dev
+
+#Delete 
+helm uninstall mywebapp-release -n default
+kubectl delete service mywebapp -n default
+kubectl delete --all namespaces

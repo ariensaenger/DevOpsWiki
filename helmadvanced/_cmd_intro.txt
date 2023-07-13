@@ -1,0 +1,41 @@
+1. Add Bitnami Repo 
+helm repo add bitnami 
+
+2. Search repo 
+helm search repo nginx
+helm search repo --versions "nginx"
+
+3. Set namespace 
+kubectl create namespace web
+kubectl config set-context --current --namespace=web
+kubectl config get-contexts
+kubectl get namespaces
+
+4. Install chart 
+helm install nginx01 bitnami/nginx
+
+5. Go to Url 
+minikube service -n web --url nginx01 
+
+6. customize chart
+>Create Value file for changing service.type  service.ports.http
+``
+service:
+	type: NodePort
+``
+helm install nginx03 --values values.yaml --set service.port=8080 bitnami/nginx
+or
+helm install nginx03 --set service.type=NodePort --set service.port=8080 bitnami/nginx
+
+7. Check NGINX
+http://localhost:30065/
+
+8.Check Installs
+helm list
+helm list --all-namespaces
+
+9.Upgrade Version 
+helm upgrade nginx01 --version 9.3.5 bitnami/nginx
+
+10. Uninstall 
+helm uninstall nginx01
